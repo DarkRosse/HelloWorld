@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">Hello World</string>
+    <string name="firstStr">Привет</string>
+    <string name="secondStr">Мир</string>
+    <string name="button1">Кнопки и табуретки</string>
+    <string name="button2">Поля выпаса ввода</string>
+    <string name="button3">Чекбокс на Радио</string>
+    <string name="plusButtonDes">Кнопка плюс добавляет новую кнопку в контейнер наверху</string>
+    <string name="stringButtonDes">Поля ввода разного типа</string>
+    <string name="checkButtonDes">Кнопка Приборы отображает приборы</string>
+    <string name="checkButtonDes2">Выбрать вариант по радио</string>
+    <string name="checkButtonDes3">Выбрать вариант ползунка</string>
+    <string name="tools">Приборы</string>
+    <string name="radioOff">Выключить радио</string>
+    <string name="sliderOff">Выключить ползунок</string>
+    <string name="var1">Вариант 1</string>
+    <string name="var2">Вариант 2</string>
+    <string name="var3">Вариант 3</string>
+    <string name="hide">Спрятать Клавиатуру</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="number">Число</string>
+    <string name="numberText">1980</string>
+    <string name="passText">Hello</string>
+    <string name="password">Пароль</string>
+    <string name="string_5">Текст на 5 строк</string>
+    <string name="string_1">Однострочный текст</string>
+    <string name="example">Кнопка номер раз</string>
+</resources>

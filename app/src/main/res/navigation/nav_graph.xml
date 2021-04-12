@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeScreen">
+    <fragment
+        android:id="@+id/homeScreen"
+        android:name="com.example.helloworld.HomeScreen"
+        android:label="home_fragment"
+        tools:layout="@layout/home_fragment" >
+        <action
+            android:id="@+id/action_homeScreen_to_firstScreen2"
+            app:destination="@id/firstScreen" />
+        <action
+            android:id="@+id/action_homeScreen_to_secondScreen2"
+            app:destination="@id/secondScreen" />
+        <action
+            android:id="@+id/action_homeScreen_to_thirdScreen"
+            app:destination="@id/thirdScreen" />
+    </fragment>
+    <fragment
+        android:id="@+id/thirdScreen"
+        android:name="com.example.helloworld.ThirdScreen"
+        android:label="third_screen"
+        tools:layout="@layout/third_screen" />
+    <fragment
+        android:id="@+id/firstScreen"
+        android:name="com.example.helloworld.FirstScreen"
+        android:label="first_screen"
+        tools:layout="@layout/first_screen" />
+    <fragment
+        android:id="@+id/secondScreen"
+        android:name="com.example.helloworld.SecondScreen"
+        android:label="second_screen"
+        tools:layout="@layout/second_screen" />
+</navigation>
