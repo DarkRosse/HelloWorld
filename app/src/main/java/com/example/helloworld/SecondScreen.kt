@@ -7,51 +7,47 @@ import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.helloworld.databinding.SecondScreenBinding
 
 class SecondScreen : Fragment() {
 
-    private var _binding: SecondScreenBinding? = null
-    private val binding get() = _binding!!
+    private lateinit var binding: SecondScreenBinding
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        _binding = SecondScreenBinding.inflate(inflater, container, false)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+        binding = SecondScreenBinding.inflate(inflater)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val activity = activity as? MainActivity
-        activity?.setSupportActionBar(binding.toolbar2)
-        activity?.supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        val activity = requireActivity() as AppCompatActivity
+        activity.setSupportActionBar(binding.toolbarSecondScreen)
+        activity.supportActionBar?.setDisplayHomeAsUpEnabled(true)
         setHasOptionsMenu(true)
 
-        binding.button5.setOnClickListener {
+        binding.hideButton.setOnClickListener {
             hideMyKeyboard(view)
         }
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
-        _binding = null
 
-        val activity = activity as? MainActivity
-        activity?.supportActionBar?.setDisplayHomeAsUpEnabled(false)
+        val activity = requireActivity() as AppCompatActivity
+        activity.supportActionBar?.setDisplayHomeAsUpEnabled(false)
         setHasOptionsMenu(false)
-        super.onDestroyView()
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        val activity = activity as? MainActivity
         return when (item.itemId) {
             android.R.id.home -> {
-                activity?.onBackPressed()
+                requireActivity().onBackPressed()
                 true
             }
-            else
-            -> super.onOptionsItemSelected(item)
+            else -> super.onOptionsItemSelected(item)
         }
     }
 

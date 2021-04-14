@@ -6,25 +6,25 @@ import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.CheckBox
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.helloworld.databinding.ThirdScreenBinding
 
 class ThirdScreen : Fragment() {
 
-    private var _binding: ThirdScreenBinding? = null
-    private val binding get() = _binding!!
+    private lateinit var binding: ThirdScreenBinding
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        _binding = ThirdScreenBinding.inflate(inflater, container, false)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+        binding = ThirdScreenBinding.inflate(inflater)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val activity = activity as? MainActivity
-        activity?.setSupportActionBar(binding.toolbar3)
-        activity?.supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        val activity = requireActivity() as AppCompatActivity
+        activity.setSupportActionBar(binding.toolbarThirdScreen)
+        activity.supportActionBar?.setDisplayHomeAsUpEnabled(true)
         setHasOptionsMenu(true)
 
         binding.checkBox.setOnClickListener {
@@ -40,77 +40,61 @@ class ThirdScreen : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        _binding = null
 
-        val activity = activity as? MainActivity
-        activity?.supportActionBar?.setDisplayHomeAsUpEnabled(false)
+        val activity = requireActivity() as AppCompatActivity
+        activity.supportActionBar?.setDisplayHomeAsUpEnabled(false)
         setHasOptionsMenu(false)
-        super.onDestroyView()
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        val activity = activity as? MainActivity
         return when (item.itemId) {
             android.R.id.home -> {
-                activity?.onBackPressed()
+                requireActivity().onBackPressed()
                 true
             }
-            else
-            -> super.onOptionsItemSelected(item)
+            else -> super.onOptionsItemSelected(item)
         }
     }
 
     private fun onCheckedTools(view: View) {
         if (view is CheckBox) {
-            val checked: Boolean = view.isChecked
-            when (view.id) {
-                R.id.checkBox -> {
-                    if (checked) {
-                        binding.textView9.visibility = View.VISIBLE
-                        binding.textView10.visibility = View.VISIBLE
-                        binding.checkBox2.visibility = View.VISIBLE
-                        binding.checkBox3.visibility = View.VISIBLE
-                    } else {
-                        binding.textView9.visibility = View.INVISIBLE
-                        binding.textView10.visibility = View.INVISIBLE
-                        binding.checkBox2.visibility = View.INVISIBLE
-                        binding.checkBox3.visibility = View.INVISIBLE
-                    }
-                }
+            val checkBox: CheckBox = binding.checkBox
+            if (checkBox.isChecked) {
+                binding.checkTextTwo.visibility = View.VISIBLE
+                binding.checkTextThree.visibility = View.VISIBLE
+                binding.checkBox2.visibility = View.VISIBLE
+                binding.checkBox3.visibility = View.VISIBLE
+            } else {
+                binding.checkTextTwo.visibility = View.INVISIBLE
+                binding.checkTextThree.visibility = View.INVISIBLE
+                binding.checkBox2.visibility = View.INVISIBLE
+                binding.checkBox3.visibility = View.INVISIBLE
             }
         }
     }
 
     private fun onCheckedRadio(view: View) {
         if (view is CheckBox) {
-            val checked: Boolean = view.isChecked
-            when (view.id) {
-                R.id.checkBox2 -> {
-                    if (checked) {
-                        binding.textView4.visibility = View.VISIBLE
-                        binding.radioGroup.visibility = View.VISIBLE
-                    } else {
-                        binding.textView4.visibility = View.INVISIBLE
-                        binding.radioGroup.visibility = View.INVISIBLE
-                    }
-                }
+            val checkBox: CheckBox = binding.checkBox2
+            if (checkBox.isChecked) {
+                binding.radioText.visibility = View.VISIBLE
+                binding.radioGroup.visibility = View.VISIBLE
+            } else {
+                binding.radioText.visibility = View.INVISIBLE
+                binding.radioGroup.visibility = View.INVISIBLE
             }
         }
     }
 
     private fun onCheckedSlider(view: View) {
         if (view is CheckBox) {
-            val checked: Boolean = view.isChecked
-            when (view.id) {
-                R.id.checkBox3 -> {
-                    if (checked) {
-                        binding.textView7.visibility = View.VISIBLE
-                        binding.radioGroup2.visibility = View.VISIBLE
-                    } else {
-                        binding.textView7.visibility = View.INVISIBLE
-                        binding.radioGroup2.visibility = View.INVISIBLE
-                    }
-                }
+            val checkBox: CheckBox = binding.checkBox3
+            if (checkBox.isChecked) {
+                binding.sliderText.visibility = View.VISIBLE
+                binding.seekBar.visibility = View.VISIBLE
+            } else {
+                binding.sliderText.visibility = View.INVISIBLE
+                binding.seekBar.visibility = View.INVISIBLE
             }
         }
     }

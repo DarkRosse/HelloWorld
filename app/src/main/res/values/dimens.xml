@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="layout_height_Text_Home">80dp</dimen>
+    <dimen name="layout_height_Text_String">44dp</dimen>
+    <dimen name="layout_marginBottom_FloatingActionButton">16dp</dimen>
+    <dimen name="Text_Home_Size">48sp</dimen>
+    <dimen name="layout_height_FiveLinesString">110dp</dimen>
+    <dimen name="layout_width_Password">300dp</dimen>
+    <dimen name="layout_width_NumberString">100dp</dimen>
+    <dimen name="layout_marginStart_NumberString">5dp</dimen>
+    <dimen name="layout_width_NavigationButton">300dp</dimen>
+    <dimen name="layout_marginTop_NavigationButton">10dp</dimen>
+    <dimen name="layout_width_ExampleButton">300dp</dimen>
+    <dimen name="layout_width_HideButton">140dp</dimen>
+    <dimen name="layout_marginTop_HideButton">12dp</dimen>
+    <dimen name="layout_marginTop_CheckTextOne">8dp</dimen>
+    <dimen name="layout_marginEnd_CheckTextOne">256dp</dimen>
+    <dimen name="layout_marginTop_CheckTextSecond">16dp</dimen>
+    <dimen name="layout_marginEnd_CheckTextSecond">156dp</dimen>
+    <dimen name="layout_marginTop_CheckTextThird">20dp</dimen>
+    <dimen name="layout_marginEnd_CheckTextThird">120dp</dimen>
+    <dimen name="CheckText_Size">24sp</dimen>
+    <dimen name="layout_marginTop_ThirdScreen_MiddleText">25dp</dimen>
+    <dimen name="layout_width_SeekBar">200dp</dimen>
+    <dimen name="layout_height_SeekBar">25dp</dimen>
+    
+</resources>

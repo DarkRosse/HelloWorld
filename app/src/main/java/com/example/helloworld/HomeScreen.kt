@@ -9,23 +9,18 @@ import androidx.navigation.fragment.findNavController
 import com.example.helloworld.databinding.HomeFragmentBinding
 
 class HomeScreen : Fragment() {
-    private var _binding: HomeFragmentBinding? = null
-    private val binding get() = _binding!!
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        _binding = HomeFragmentBinding.inflate(inflater, container, false)
+    private lateinit var binding: HomeFragmentBinding
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+        binding = HomeFragmentBinding.inflate(inflater)
         return binding.root
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.button.setOnClickListener { findNavController().navigate(R.id.action_homeScreen_to_firstScreen2) }
-        binding.button2.setOnClickListener { findNavController().navigate(R.id.action_homeScreen_to_secondScreen2) }
-        binding.button3.setOnClickListener { findNavController().navigate(R.id.action_homeScreen_to_thirdScreen) }
+        binding.firstNavigationButton.setOnClickListener { findNavController().navigate(R.id.action_homeScreen_to_firstScreen2) }
+        binding.secondNavigationButton.setOnClickListener { findNavController().navigate(R.id.action_homeScreen_to_secondScreen2) }
+        binding.thirdNavigationButton.setOnClickListener { findNavController().navigate(R.id.action_homeScreen_to_thirdScreen) }
     }
 }
